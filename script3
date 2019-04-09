@@ -1,0 +1,29 @@
+month=0
+days=31;
+
+
+ssn = ['Capricorn','Aquarius','Pisces','Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius']
+sday = [22,20,19,21,20,21,21,23,23,23,23,22]
+
+f = open("signs.csv", "a")
+
+def zodiac(month, day):
+	if (day<sday[month-1]):
+		return ssn[month-1]
+	elif (month>11):
+		return 'Capricorn'
+	else:
+		return ssn[month]
+	
+
+for month in range(12):
+	month=month+1
+	if (month==9|month==4|month==6|month==11):
+		days=30
+	elif (month==2):
+		days=29
+	else:
+		days=31
+	for day in range(days):
+		f.write(str(month)+","+str(day+1)+","+zodiac(month,day)+"\n")
+
