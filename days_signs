@@ -27,3 +27,4 @@ for month in range(12):
 	for day in range(days):
 		f.write(str(month)+","+str(day+1)+","+zodiac(month,day)+"\n")
 
+
