@@ -1,0 +1,10 @@
+import re
+
+cal = open("my.ics", "r")
+f = open("output2.csv", "a")
+
+for line in cal:
+    if re.match("(.*)SUMMARY(.*)", line):
+	f.write(line.split("'")[0][8:])
+    if re.match("(.*)DTSTART(.*)", line):
+        f.write(","+line[12:14]+","+line[14:16]+"\n")
